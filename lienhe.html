@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="s.css">
+</head>
+
+<body>
+    <header class="header">
+        <section class="flex">
+            <a href="home.html" class="logo">Yolostudy</a>
+            <form action="" method="post" class="search-form">
+                <input type="text" name="search-box" placeholder="Tìm kiếm" maxlength="100">
+                <button class="fas fa-search" type="submit" name="search-box"></button>
+
+            </form>
+            <div class="icon">
+                <div class="fas fa-bars" id="menu-bt"></div>
+                <div class="fas fa-search" id="search-bt"></div>
+                <div class="fas fa-user" id="user-bt"></div>
+                <div class="fas fa-sun" id="sun-bt"></div>
+            </div>
+            <div class="profile">
+                <img src="logohondai.ico" alt="">
+                <h3>asdasd</h3>
+                <span>asdasd</span>
+                <a href="profile.html" class="bt">Xem thông tin</a>
+                <div class="flex-bt">
+                    <a href="dangnhap.html" class="option-bt">Đăng nhập</a>
+                    <a href="dangky.html" class="option-bt">Đăng ký</a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <div class="side-bar">
+        <div class="close-side-bar">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="profile">
+            <img src="logohondai.ico" alt="">
+            <h3>asdasd</h3>
+            <span>asdasd</span>
+            <a href="profile.html" class="bt">Xem thông tin</a>
+        </div>
+        <nav class="nav-bar">
+            <a href="home.html"><i class="fas fa-home"></i><span>Trang chủ</span></a>
+            <a href="about.html"><i class="fas fa-question"></i><span>Về chúng tôi</span></a>
+            <a href="khoa.html"><i class="fas fa-graduation-cap"></i><span>Khoá học</span></a>
+            <a href="nguoiday.html"><i class="fas fa-chalkboard-teacher"></i><span>Giáo viên</span></a>
+            <a href="lienhe.html"><i class="fas fa-headset"></i><span>Liên hệ</span></a>
+        </nav>
+    </div>
+
+    <section class="lienhe">
+
+        <div class="row">
+            <div class="image">
+                <img src="logohondai.ico" alt="">
+            </div>
+            <form action="" method="post">
+                <h3>Liên lạc với chúng tôi</h3>
+                <input type="text" placeholder="Nhập tên của bạn" required maxlength="50" name="name" class="box">
+                <input type="email" placeholder="Nhập email của bạn" required maxlength="50" name="email" class="box">
+                <input type="number" placeholder="Nhập số điện thoại của bạn" required maxlength="50" name="number"
+                    class="box">
+                <textarea name="msg" class="box" placeholder="Nhập ý kiến của bạn" required cols="30"
+                    rows="10"></textarea>
+                <input type="submit" value="Gửi ý kiến" class="inline-bt" name="submit">
+            </form>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-phone"></i>
+                <h3>Số điện thoại</h3>
+                <a href="tel:0905087642">0905087642</a>
+            </div>
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <h3>Địa chỉ email</h3>
+                <a href="mailto:haivanqueline@gmail.com">haivanqueline@gmail.com</a>
+                <a href="mailto:nguyen202202@gmail.com">nguyen202202@gmail.com</a>
+            </div>
+            <div class="box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Địa chỉ của những người đẹp trai</h3>
+                <a href="#">567 Lê Duẩn, Phường Eatam, Thành phố Buôn Mê Thuật, Tỉnh Đắk Lắk</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        &copy Web được làm và tham khảo bởi 3 người đẹp trai nhất thế giới <span>Hải Nguyên Ý</span>
+    </footer>
+    <script src="s.js"></script>
+</body>
+
+</html>

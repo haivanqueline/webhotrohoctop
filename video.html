@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="s.css">
+</head>
+
+<body>
+    <header class="header">
+        <section class="flex">
+            <a href="home.html" class="logo">Yolostudy</a>
+            <form action="" method="post" class="search-form">
+                <input type="text" name="search-box" placeholder="Tìm kiếm" maxlength="100">
+                <button class="fas fa-search" type="submit" name="search-box"></button>
+
+            </form>
+            <div class="icon">
+                <div class="fas fa-bars" id="menu-bt"></div>
+                <div class="fas fa-search" id="search-bt"></div>
+                <div class="fas fa-user" id="user-bt"></div>
+                <div class="fas fa-sun" id="sun-bt"></div>
+            </div>
+            <div class="profile">
+                <img src="logohondai.ico" alt="">
+                <h3>asdasd</h3>
+                <span>asdasd</span>
+                <a href="profile.html" class="bt">Xem thông tin</a>
+                <div class="flex-bt">
+                    <a href="dangnhap.html" class="option-bt">Đăng nhập</a>
+                    <a href="dangky.html" class="option-bt">Đăng ký</a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <div class="side-bar">
+        <div class="close-side-bar">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="profile">
+            <img src="logohondai.ico" alt="">
+            <h3>asdasd</h3>
+            <span>asdasd</span>
+            <a href="profile.html" class="bt">Xem thông tin</a>
+        </div>
+        <nav class="nav-bar">
+            <a href="home.html"><i class="fas fa-home"></i><span>Trang chủ</span></a>
+            <a href="about.html"><i class="fas fa-question"></i><span>Về chúng tôi</span></a>
+            <a href="khoa.html"><i class="fas fa-graduation-cap"></i><span>Khoá học</span></a>
+            <a href="nguoiday.html"><i class="fas fa-chalkboard-teacher"></i><span>Giáo viên</span></a>
+            <a href="lienhe.html"><i class="fas fa-headset"></i><span>Liên hệ</span></a>
+        </nav>
+    </div>
+
+    <section class="watch-video">
+        <div class="video-details">
+            <video src="video/den.mp4" class="video" poster="icons/quantum.jpg" controls autoplay></video>
+            <h3 class="title">Vật lý lượng tử đơn giản phần 1</h3>
+            <div class="info">
+                <p><i class="fas fa-calendar"></i><span>21/03/2024</span></p>
+                <p><i class="fas fa-heart"></i><span>2 lượt thích</span></p>
+            </div>
+            <div class="giasu">
+                <img src="logohondai.ico" alt="">
+                <div>
+                    <h3>Ngheo</h3>
+                    <span>The most handsome man in the world</span>
+                </div>
+            </div>
+            <form action="" method="post" class="flex">
+                <a href="danhsach.html" class="inline-bt">Xem danh sách</a>
+                <button type="submit"><i class="far fa-heart"></i><span>Thích</span></button>
+            </form>
+            <div class="desc">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique ullam rem dolores sint modi,
+                    eaque quas distinctio odit provident molestias exercitationem nemo cum perspiciatis quos. Recusandae
+                    facilis id vel molestias?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque nesciunt quidem possimus esse
+                    tempore harum quam obcaecati modi qui ipsum inventore, perferendis a quo atque! Temporibus,
+                    voluptate?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="comments">
+        <h1 class="heading">Thêm bình luận</h1>
+        <form action="" method="post" class="add-comment">
+            <textarea name="comment-box" required placeholder="Viết bình luận" maxlength="255" cols="30"
+                rows="10"></textarea>
+            <input type="submit" value="Thêm bình luận" name="add_comment" class="inline-bt">
+        </form>
+        <h1 class="heading">3 bình luận</h1>
+        <div class="show-comments">
+            <div class="box">
+                <div class="user">
+                    <img src="logohondai.ico" alt="">
+                    <div>
+                        <h3>Thiện</h3>
+                        <span>22/03/2024</span>
+                    </div>
+                </div>
+                <p class="text">Bel vai chuong</p>
+                <form action="" method="post" class="flex-bt">
+                    <button type="submit" name="edit_comment" class="inline-option-bt">Chỉnh sửa bình luận</button>
+                    <button type="submit" name="delete_comment" class="inline-delete-bt">Xoá bình luận</button>
+                </form>
+            </div>
+            <div class="box">
+                <div class="user">
+                    <img src="logohondai.ico" alt="">
+                    <div>
+                        <h3>Hari handsome</h3>
+                        <span>23/03/2024</span>
+                    </div>
+                </div>
+                <p class="text">dep trai qua</p>
+            </div>
+            <div class="box">
+                <div class="user">
+                    <img src="logohondai.ico" alt="">
+                    <div>
+                        <h3>Hari handsome</h3>
+                        <span>23/03/2024</span>
+                    </div>
+                </div>
+                <p class="text">dep trai qua</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy Web được làm và tham khảo bởi 3 người đẹp trai nhất thế giới <span>Hải Nguyên Ý</span>
+    </footer>
+    <script src="s.js"></script>
+</body>
+
+</html>
