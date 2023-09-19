@@ -1276,9 +1276,146 @@ section {
 }
 
 
+.yolostudy-toggle{
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    color: var(--trang);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--mau-chinh);
+    transition: all 0.2s ease;
+}
+.show-yolostudy .yolostudy-toggle{
+    transform:  rotate(90deg);
+}
+.yolostudy-toggle span{
+    position: absolute;
+}
+.show-yolostudy .yolostudy-toggle span:first-child,
+.yolostudy-toggle span:last-child{
+    opacity: 0;
+}
+.show-yolostudy .yolostudy-toggle span:last-child{
+    opacity: 1;
+}
 
+.yolostudy{
+    position: fixed;
+    width: 40rem;
+    background-color: var(--trang);
+    right: 4.5rem;
+    bottom: 9.25rem;
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 1rem;
+    transform-origin: bottom right;
+    box-shadow: 0 0 8rem 0 rgba(8, 8, 8, 0.2),0 2rem 4rem -3rem rgba(8, 8, 8, 0.7); 
+    transition: all 0.1s ease;
+}
+.show-yolostudy .yolostudy{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+.yolostudy header{
+    background-color: var(--mau-chinh);
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--mau-bg);
+    font-size: 2rem;
+    position: relative;
+}
+.yolostudy .chatbox{
+    height: 36rem;
+    overflow-y: auto;
+    padding: 30px 20px 100px;
+}
+.yolostudy header span{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    display: none;
+}
+.chatbox .chat{
+    display: flex;
+}
+.chatbox .incoming span{
+    height: 2rem;
+    width: 2rem;
+    color: var(--trang);
+    background-color: var(--mau-chinh);
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 4px;
+    margin:0 10px 7px 0;
+    align-self: flex-end;
+}
+.chatbox .outgoing{
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+.chatbox .chat p{
+    background-color: var(--mau-chinh);
+    padding: 12px 1rem;
+    max-width: 75%;
+    white-space: pre-wrap;
+    border-radius: 10px 10px 0 10px;
+    font-size: 1.5rem;
+}
+.chatbox .chat p.error{
+    color: var(--do);
+    background: var(--mau-bg);
+}
+.chatbox .incoming p{
+    color: var(--den);
+    background: var(--mau-bg);
+    border-radius: 10px 10px 10px 0;
+}
+.yolostudy .chat-input{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    background-color: var(--trang);
+    border-top: 1px solid var(--mau-bg);
+    padding: 5px 20px;
+}
+.chat-input textarea{
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    max-height: 180px;
+    font-size: 1.5rem;
+    resize: none;
+    padding: 1rem 15px 1rem 0;
+}
+.chat-input span{
+    height: 55px;
+    line-height: 55px;
+    align-self: flex-end;
+    font-size: 1.35rem;
+    cursor: pointer;
+    color:var(--mau-chinh) ;
+    visibility: hidden;
+}
 
-
+.chat-input textarea:valid ~ span{
+    visibility: visible;
+}
 
 
 
@@ -1393,5 +1530,18 @@ section {
     .lienhe .row .image img {
         height: auto;
     }
-
+    .yolostudy{
+        top: 50px;
+        right: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 95%;
+        border-radius: 0;
+    }
+    .yolostudy .chatbox{
+        height: 90%;
+    }
+    .yolostudy header span{
+        display: block;
+    }
 }
