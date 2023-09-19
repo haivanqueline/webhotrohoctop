@@ -53,3 +53,87 @@ togglebt.onclick = (e) => {
         disabledarkmode();
     }
 }
+const chatinput = document.querySelector(".chat-input textarea");
+const sendchatbt = document.querySelector(".chat-input span");
+const chatbox = document.querySelector(".chatbox");
+const yolostudytoggle = document.querySelector(".yolostudy-toggle");
+const yolostudyclosebt = document.querySelector(".close-bt");
+const createchatli = (message, classname) => {
+    const chatli = document.createElement("li");
+    chatli.classList.add("chat", classname);
+    let chatcontent = classname === "outgoing" ? `<p></p>` : `<span><i class="fas fa-robot"></i></span><p></p>`;
+    chatli.innerHTML = chatcontent;
+    chatli.querySelector("p").textContent = message;
+    return chatli;
+}
+
+let usermessage;
+const API_KEY = "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";
+const inputinitheight = chatinput.scrollHeight;
+let isRequestPending = false;
+
+const generateresponse = (incomingchatli) => {
+    const API_URL = "https://api.openai.com/v1/chat/completions";
+    const messageelement = incomingchatli.querySelector("p");
+    const requestoptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: usermessage }
+            ]
+        })
+    };
+
+    if (isRequestPending) {
+        messageelement.textContent = "Lỗi rồi bạn ơi! Đợi một chút";
+        return;
+    }
+
+    isRequestPending = true;
+
+    fetch(API_URL, requestoptions)
+        .then(res => res.json())
+        .then(data => {
+            messageelement.textContent = data.choices[0].message.content;
+            isRequestPending = false;
+        }).catch((error) => {
+            messageelement.classList.add("error");
+            messageelement.textContent = "Lỗi rồi bạn ơi! Đợi một chút";
+            isRequestPending = false;
+        }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+};
+
+const handlechat = () => {
+    usermessage = chatinput.value.trim();
+    if (!usermessage) return;
+    chatinput.value = "";
+    chatinput.style.height = `${inputinitheight}px`;
+
+    chatbox.appendChild(createchatli(usermessage, "outgoing"));
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    setTimeout(() => {
+        const incomingchatli = createchatli("Đang suy nghĩ...", "...");
+        chatbox.appendChild(incomingchatli);
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+        generateresponse(incomingchatli);
+    }, 1000);
+};
+chatinput.addEventListener("input", ()=>{
+    chatinput.style.height = `${inputinitheight}px`;
+    chatinput.style.height = `${chatinput.scrollHeight}px`;
+});
+chatinput.addEventListener("keydown", (e)=>{
+    if (e.key=== "Enter" && !e.shiftKey && window.innerWidth > 800) {
+        e.preventDefault();
+        handlechat();
+    }
+});
+sendchatbt.addEventListener("click", handlechat);
+yolostudytoggle.addEventListener("click",()=> document.body.classList.toggle("show-yolostudy"));
+yolostudyclosebt.addEventListener("click",()=> document.body.classList.remove("show-yolostudy"));
