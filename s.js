@@ -1,26 +1,25 @@
 let body = document.body;
 let profile = document.querySelector('.header .flex .profile');
-let searchform = document.querySelector('.header .flex .search-form');
 let sidebar = document.querySelector('.side-bar');
+let searchform = document.querySelector('.header .flex .search-form');
+let togglebt = document.querySelector('#toggle-bt');
+let darkmode = localStorage.getItem('dark-mode');
 document.querySelector('#user-bt').onclick = () => {
     profile.classList.toggle('active');
     searchform.classList.remove('active');
-}
-
+};
 document.querySelector('#search-bt').onclick = () => {
     searchform.classList.toggle('active');
     profile.classList.remove('active');
+};
 
-}
 document.querySelector('#menu-bt').onclick = () => {
     sidebar.classList.toggle('active');
-    body.classList.toggle('active')
-}
-document.querySelector('.side-bar .close-side-bar').onclick = () => {
+    body.classList.toggle('active');
+};
+document.querySelector('#close-bar').onclick = () => {
     sidebar.classList.remove('active');
-    body.classList.remove('active');
-}
-
+};
 window.onscroll = () => {
     profile.classList.remove('active');
     searchform.classList.remove('active');
@@ -28,31 +27,40 @@ window.onscroll = () => {
         sidebar.classList.remove('active');
         body.classList.remove('active');
     }
-}
-let togglebt = document.querySelector('#sun-bt');
-let darkmode = localStorage.getItem('dark-mode');
+};
 const enabledarkmode = () => {
     togglebt.classList.replace('fa-sun', 'fa-moon');
     body.classList.add('dark');
-    localStorage.setItem('dark-mode', 'enable')
+    localStorage.setItem('dark-mode', 'enabled');
 };
 const disabledarkmode = () => {
     togglebt.classList.replace('fa-moon', 'fa-sun');
     body.classList.remove('dark');
-    localStorage.setItem('dark-mode', 'disable')
+    localStorage.setItem('dark-mode', 'disabled');
 };
-if (darkmode === 'enable') {
-    enabledarkmode();
-}
+
 togglebt.onclick = (e) => {
     let darkmode = localStorage.getItem('dark-mode');
-    if (darkmode === 'disable') {
+    if (darkmode === 'disabled') {
         enabledarkmode();
-    }
-    else {
+    } else {
         disabledarkmode();
     }
 }
+if (darkmode === 'enabled') {
+    enabledarkmode();
+}
+document.querySelectorAll('input[type="number"]').forEach(inputnumber => {
+    inputnumber.oninput = () => {
+        if (inputnumber.value.length > inputnumber.maxLength) {
+            inputnumber.value = inputnumber.value.slice(0, inputnumber.maxLength);
+        }
+    };
+});
+
+
+
+
 const chatinput = document.querySelector(".chat-input textarea");
 const sendchatbt = document.querySelector(".chat-input span");
 const chatbox = document.querySelector(".chatbox");
@@ -124,16 +132,16 @@ const handlechat = () => {
         generateresponse(incomingchatli);
     }, 1000);
 };
-chatinput.addEventListener("input", ()=>{
+chatinput.addEventListener("input", () => {
     chatinput.style.height = `${inputinitheight}px`;
     chatinput.style.height = `${chatinput.scrollHeight}px`;
 });
-chatinput.addEventListener("keydown", (e)=>{
-    if (e.key=== "Enter" && !e.shiftKey && window.innerWidth > 800) {
+chatinput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
         e.preventDefault();
         handlechat();
     }
 });
 sendchatbt.addEventListener("click", handlechat);
-yolostudytoggle.addEventListener("click",()=> document.body.classList.toggle("show-yolostudy"));
-yolostudyclosebt.addEventListener("click",()=> document.body.classList.remove("show-yolostudy"));
+yolostudytoggle.addEventListener("click", () => document.body.classList.toggle("show-yolostudy"));
+yolostudyclosebt.addEventListener("click", () => document.body.classList.remove("show-yolostudy"));
